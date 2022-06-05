@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ds">
+        <attr name="gradientSecondColor" format="color"/>
+        <attr name="greyStroke" format="color"/>
+    </declare-styleable>
+</resources>

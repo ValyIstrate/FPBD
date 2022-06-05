@@ -1,0 +1,429 @@
+<resources>
+    <string name="app_name">FPBD</string>
+    <string name="titlu_intro0">Introducere</string>
+    <string name="titlu_intro1">Anatomia unei secvente de cod in limbaj SQL </string>
+    <string name="titlu_intro2"><u>Clauza SELECT si Clauza FROM</u></string>
+    <string name="titlu_intro3"><u>Clauza WHERE</u></string>
+    <string name="titlu_intro4"><u>Clauza ORDER BY</u></string>
+    <string name="titlu_intro5"><u>Clauza GROUP BY</u></string>
+    <string name="titlu_intro6"><u>Clauza HAVING</u></string>
+    <string name="titlu_intro7"><u>Ordinea clauzelor intr-o secventa de cod</u></string>
+    <string name="continut_intro1">\tCea mai simpla secventa de cod din SQL consta in utilizarea clauzelor SELECT si FROM.\n\t Secventa de cod din imaginea alaturata va afisa toate coloanele din tabelul “STUDENTS”. </string>
+    <string name="continut_intro2">\tPentru a selecta doar datele unor studenti care indeplinesc anumite conditii vom folosi clauza WHERE, ca in exemplul alaturat (alegem din tabelul “STUDENTS” doar datele studentilor de sex masculin). </string>
+    <string name="continut_intro3">\tPentru a ordona datele afisate vom folosi clauza ORDER BY.\n\t In exemplul alaturat vom afisa studentii de sex masculin in ordine alfabetica (dupa nume). </string>
+    <string name="continut_intro4">\tIn cazul in care vrem sa afisam salariul mediu din fiecare departament al unei firme, vom utiliza clauza GROUP BY (functia AVG va fi prezentata in capitolul Functii de Grup).\n\t In secventa de cod din imaginea alaturata luam fiecare angajat al firmei si il plasam in grupa departamentului sau, pentru ca mai apoi sa calculam media salariului pentru fiecare departament. </string>
+    <string name="continut_intro5">\tIn acelasi fel in care utilizam clauza WHERE ca sa restrictionam randurile selectate, putem folosi clauza HAVING pentru a restrictiona grupuri.\n\t\t In secventa de cod alaturata vom afisa salariul maxim din fiecare departament care are mai mult de un angajat (despre functiile MAX si COUNT vom vorbi in capitolul Functii de Grup). </string>
+    <string name="continut_intro6">\tPentru ca o secventa de cod sa functioneze, ordinea clauzelor trebuie sa fie urmatoarea:\n\t\t-SELECT\n\t\t-FROM\n\t\t-WHERE\n\t\t-GROUP BY\n\t\t-HAVING\n\t\t-ORDER BY\n\t\tPentru a retine aceasta ordine exista o propozitie ajutatoare, in limba engleza: So Few Workers Go Home On time. (sau se poate cauta ordinea pe Google de fiecare data cand exista dubii  ;) )</string>
+
+    <string name="cod_secv_simpla">"
+SELECT *
+FROM students
+"</string>
+
+    <string name="cod_secv_where">"
+SELECT *
+FROM students
+WHERE sex LIKE 'M'
+"</string>
+
+    <string name="cod_secv_orderby">"
+SELECT*
+FROM students
+WHERE sex LIKE 'M'
+ORDER BY lname
+"</string>
+
+    <string name="cod_secv_groupby">"
+SELECT deprtment_id, AVG(salary)
+FROM employees
+GROUP BY department_id
+"</string>
+
+    <string name="cod_secv_having">"
+SELECT deprtment_id, AVG(salary)
+FROM employees
+GROUP BY department_id
+HAVING COUNT(*) > 1
+"</string>
+
+    <string name="titlu_f_num0">Functii Numerice</string>
+    <string name="intro_f_num">Cele trei functii numerice sunt: </string>
+    <string name="titlu_f_num1"><u>ROUND</u></string>
+    <string name="titlu_f_num2"><u>TRUNC</u> </string>
+    <string name="titlu_f_num3"><u>MOD</u></string>
+
+    <string name="continut_f_num1_01">\tFunctia ROUND este utilizata pentru a rotunji un camp numeric la numarul de zecimale specificate.\n\n\t<b>SINTAXA: ROUND(coloana|expresie, zecimale)</b></string>
+    <string name="continut_f_num1_02">\tDaca numarul de zecimale este mai mare ca zero - numarul se rotunjeste la numarul specificat de zecimale.</string>
+    <string name="continut_f_num1_03">\tDaca numarul de zecimale este zero - atunci numarul se rotunjeste la cel mai apropiat intreg.</string>
+    <string name="continut_f_num1_04">\tDaca numarul de zecimale este mai mic decat zero - atunci numarul se rotunjeste la stanga virgulei de zecimale.</string>
+
+    <string name="cod_f_num1_01">"
+SELECT ROUND(235.415, 2)
+AS RoundValue
+FROM DUAL
+->235.42
+"</string>
+    <string name="cod_f_num1_02">"
+SELECT ROUND(45.926, 0)
+AS RoundValue
+FROM DUAL
+->46
+"</string>
+    <string name="cod_f_num1_03">"
+SELECT ROUND(235.415, -1)
+AS RoundValue
+FROM DUAL
+->240
+"</string>
+
+    <string name="continut_f_num2">\tFunctia TRUNC trunchiaza un numar la un intreg prin eliminarea partii zecimale a numarului.\n\n\t<b>SINTAXA: TRUNC(coloana|expresie, zecimale)</b></string>
+    <string name="cod_f_num2">"
+SELECT TRUNC(45.926, 2)
+AS TruncValue
+FROM DUAL
+->45.92
+"</string>
+
+    <string name="continut_f_num3">\tFunctia MOD returneaza restul impartirii lui m la n. Functia mod poate fi folosita pentru a verifica daca o valoare este para sau impara, prin impartirea la 2.</string>
+    <string name="cod_f_num3">"
+SELECT MOD(18, 4) AS Rest, MOD(18, 2)
+AS Paritate
+FROM DUAL
+
+Rest -> 2
+Paritate -> 0 (18 este par)
+"</string>
+
+    <string name="titlu_f_data0">Functii de tip data</string>
+    <string name="intro_f_data">Functiile de tip data sunt:</string>
+    <string name="titlu_f_data1"><u>SYSDATE</u></string>
+    <string name="titlu_f_data2"><u>MONTHS_BETWEEN</u></string>
+    <string name="titlu_f_data3"><u>ADD_MONTHS</u></string>
+    <string name="titlu_f_data4"><u>NEXT_DAY</u></string>
+    <string name="titlu_f_data5"><u>LAST_DAY</u></string>
+    <string name="titlu_f_data6"><u>ROUND</u></string>
+    <string name="titlu_f_data7"><u>TRUNC</u></string>
+
+    <string name="cnt_f_data1">\tFunctia SYSDATE returneaza data si ora sistemului.\n\tSYSDATE se foloseste ca orice alt nume de coloana, se poate afisa data curenta selectand SYSDATE dintr-o tabela. </string>
+    <string name="cod_f_data1">"
+SELECT SYSDATE
+FROM DUAL
+"</string>
+
+    <string name="cnt_f_data2">\tFunctia MONTHS_BETWEEN returneaza numarul de luni dintre data1 si data2.\n\tRezultatul poate fi pozitiv sau negativ. Daca data1 este mai mare decat data2 rezultatul este pozitiv, daca data1 este mai mica decat data2 rezultatul este negativ.\n\tValoarea zecimala reprezinta o parte a lunii.\n\n\t<b>SINTAXA: MONTHS_BETWEEN(data1, data2)</b></string>
+    <string name="cod_f_data2">"
+SELECT MONTHS_BETWEEN
+(TO_DATE(’02-02-1995’ , ’MM-DD-YYYY’),
+TO_DATE(’01-01-1995’ , ’MM-DD-YYYY’) )
+FROM DUAL
+"</string>
+
+    <string name="cnt_f_data3">\tFunctia ADD_MONTHS adauga n luni la o data. n trebuie sa aiba o valoare intreaga si poate fi negativ.\n\n\t<b>SINTAXA: ADD_MONTHS(data, numar_intreg)</b></string>
+    <string name="cod_f_data3">"
+SELECT TO_CHAR (ADD_MONTHS (data_angajarii, 1) , ’DD-MM-YYYY’)
+FROM angajati
+"</string>
+
+    <string name="cnt_f_data4">\tFunctia NEXT_DAY Returneaza data urmatoare unei zile specificate. Argumentul char poate fi un numar sau un sir de caractere.\n\n\t<b>SINTAXA: NEXT_DAY(data, valoare_char)</b></string>
+    <string name="cod_f_data4">"
+SELECT NEXT_DAY(’02-FEB-2001’,’TUESDAY’)
+FROM DUAL
+"</string>
+
+    <string name="cnt_f_data5">\tFunctia LAST_DAY returneaza ultima zi din luna.\n\n\t<b>SINTAXA: LAST_DAY(data) </b></string>
+    <string name="cod_f_data5">"
+SELECT LAST_DAY(data_angajarii)
+FROM angajati
+"
+</string>
+
+    <string name="cnt_f_data6">\tFunctia ROUND returneaza data rotunjita la o unitate specificata.\n\tDaca unitatea la care se doreste rotunjirea nu este specificata, data este rotunjita la cea mai apropiata zi.\n\n\t<b>SINTAXA: ROUND(data, valoare _char)</b></string>
+    <string name="cod_f_data6">"
+SELECT ROUND (TO_DATE (’27-OCT-00’), ’YEAR’)
+FROM DUAL
+"</string>
+
+    <string name="cnt_f_data7">\tFunctia TRUNC returneaza data trunchiata la o unitate specifiata.\n\tDaca unitatea la care se doreste trunchierea nu este specificata, data este rotunjita la cea mai apropiata zi.\n\n\t<b>SINTAXA: TRUNC(data, valoare_char)</b></string>
+    <string name="cod_f_data7">"
+SELECT TRUNC(SYSDATE, ’MM’)
+FROM DUAL
+"</string>
+
+    <string name="titlu_f_conv0">Functii de conversie</string>
+    <string name="intro_f_conv">Functiile de conversie sunt:</string>
+    <string name="titlu_f_conv1"><u>TO_CHAR</u></string>
+    <string name="titlu_f_conv2"><u>TO_NUMBER</u></string>
+    <string name="titlu_f_conv3"><u>TO_DATE </u></string>
+
+    <string name="cnt_f_conv1">\tFunctia TO_CHAR converteste o valoare de tip numeric sau data intr-un sir de caractere, ce are formatul specificat optional.\n\t<b>SINTAXA: TO_CHAR(valoare, format)</b>\n\tEXEMPLE:</string>
+    <string name="cod_f_conv11">"
+SELECT
+TO_CHAR(SYSDATE, 'yyyy/mm/dd')
+FROM DUAL
+->2021/04/04
+"</string>
+    <string name="cod_f_conv12">"
+SELECT
+TO_CHAR(SYSDATE, 'Month DD, YYYY')
+FROM DUAL
+->April 04, 2021
+"</string>
+    <string name="cod_f_conv13">"
+SELECT
+TO_CHAR(SYSDATE, 'FMMonth DD, YYYY')
+FROM DUAL
+->April 4, 2021
+"</string>
+    <string name="cod_f_conv14">"
+SELECT
+TO_CHAR(SYSDATE, 'MON DDth, YYYY')
+FROM DUAL
+->APR 04TH, 2021
+"</string>
+    <string name="cod_f_conv15">"
+SELECT
+TO_CHAR(SYSDATE, 'FMMON DDth, YYYY')
+FROM DUAL
+->APR 4TH, 2021
+"</string>
+    <string name="cod_f_conv16">"
+SELECT
+TO_CHAR(SYSDATE, 'FMMon ddth, YYYY')
+FROM DUAL
+->Apr 4th, 2021
+"</string>
+
+    <string name="cnt_f_conv2">\tFunctia TO_NUMBER converteste un sir de caractere ce contine cifre intr-un numar, ce are formatul specificat optional.\n\t<b>SINTAXA: TO_NUMBER(valoare, format)</b>\n\tEXEMPLE:</string>
+    <string name="cod_f_conv21">"
+SELECT
+TO_NUMBER('1210.73', '9999.99')
+FROM DUAL
+->1210.73
+"</string>
+    <string name="cod_f_conv22">"
+SELECT
+TO_NUMBER('546', '999')
+FROM DUAL
+->546
+"</string>
+    <string name="cod_f_conv23">"
+SELECT
+TO_NUMBER('23', '99')
+FROM DUAL
+->23
+"</string>
+
+    <string name="cnt_f_conv3">\tFunctia TO_CHAR converteste un sir de caractere reperezentand o data intr-o valoare de tip data, ce are formatul optional specificat (in cazul in care nu este, formatul este DD-MON-YY.)\n\t<b>SINTAXA: TO_CHAR(valoare, format)</b>\n\tEXEMPLE: </string>
+    <string name="cod_f_conv31">"
+SELECT
+TO_DATE('2021/04/04', 'yyyy/mm/dd')
+FROM DUAL
+->04-Apr-2021
+"</string>
+    <string name="cod_f_conv32">"
+SELECT
+TO_DATE('040421', 'MMDDYY')
+FROM DUAL
+->04-Apr-2021
+"</string>
+    <string name="cod_f_conv33">"
+SELECT
+TO_DATE('20210404', 'yyyymmdd')
+FROM DUAL
+->04-Apr-2021
+"</string>
+
+    <string name="titlu_f_gen0">Functii generale</string>
+    <string name="intro_f_gen">Aceste functii sunt: </string>
+    <string name="titlu_f_gen1"><u>NVL</u></string>
+    <string name="titlu_f_gen2"><u>NVL2</u></string>
+    <string name="titlu_f_gen3"><u>NULLIF</u></string>
+    <string name="titlu_f_gen4"><u>COALESCE</u></string>
+
+    <string name="cnt_f_gen1">\tFunctia NVL converteste o valoare nula intr-o valoare actuala.\n\t<b>SINTAXA: NVL(expresie_1, expresie_2)</b></string>
+    <string name="cod_f_gen1">"
+SELECT country_name,
+NVL(internet_extension, 'None')
+AS "Internet extn"
+FROM wf_countries
+WHERE location = 'Southern Africa'
+ORDER BY internet_extension DESC
+
+-> Juan de Nova Island      None
+   Republic of Zimbabwe     .zw
+"</string>
+
+    <string name="cnt_f_gen2">\tDaca expr1 nu este nula, NVL2 returneaza expr2.\n\tDaca expr1 este nula, NVL2 returneza expr3.\n\tArgumentul expr1 poate fi orice tip de date.\n\t<b>SINTAXA: NVL2(expresie_1, expresie_2, expresie_3)</b></string>
+    <string name="cod_f_gen2">"
+SELECT last_name AS "LName", salary, 
+
+NVL2( commission_pct,
+salary + (salary * commission_pct),
+salary ) 
+
+AS income 
+FROM employees 
+WHERE department_id IN(80,90); 
+
+->LName      SALARY     INCOME
+  King       24000      24000
+  Abel       11000      14300
+"</string>
+
+    <string name="cnt_f_gen3">\tFunctia NULLIF compara doua expresii si returneaza valoarea nula daca sunt egale sau prima expresie daca nu sunt egale.\n\t<b>SINTAXA: NULLIF(expresie_1, expresie_2)</b></string>
+    <string name="cod_f_gen3">"
+SELECT first_name AS FN,
+last_name AS LN,
+LENGTH(first_name) AS "FNL",
+LENGTH(last_name) AS "LNL",
+
+NULLIF ( LENGTH(first_name),
+LENGTH(last_name) )
+
+AS "EQ"
+FROM employees
+
+->FN      LN      FNL  LNL  EQ
+  Ellen   Abel    5    4    5
+  Pat     Fay     3    3    -
+"</string>
+
+    <string name="cnt_f_gen4">\tFunctia COALESCE returneaza prima expresie non-nula din lista de expresii.\n\t<b>SINTAXA: COALESCE (expresie_1, expresie_2, ..., expresie_n)</b></string>
+    <string name="cod_f_gen4">"
+SELECT last_name AS LN,
+
+COALESCE ( commission_pct,
+salary,
+10 )
+
+AS "Comm"
+FROM employees
+ORDER BY commission_pct
+
+->LN       Comm
+  Grant    .15
+  Matos    2600
+"</string>
+
+    <string name="titlu_f_grup0">Functii de grup</string>
+    <string name="intro_f_grup">Functiile de grup sunt:</string>
+    <string name="imp_f_grup"><u>IMPORTANT!</u></string>
+    <string name="titlu_f_grup1"><u>AVG</u></string>
+    <string name="titlu_f_grup2"><u>COUNT</u></string>
+    <string name="titlu_f_grup3"><u>MIN</u></string>
+    <string name="titlu_f_grup4"><u>MAX</u></string>
+    <string name="titlu_f_grup5"><u>SUM</u></string>
+    <string name="titlu_f_grup6"><u>VARIANCE</u></string>
+    <string name="titlu_f_grup7"><u>STDDEV</u></string>
+
+    <string name="cnt_imp_f_grup">\t! Functiile de grup pot opera pe un tabel intreg sau pe un grup specific de coloane.\n\t! Fiecare functie returneaza o singura valoare\n\t! DISTINCT face ca functia sa ignore valorile duplicat\n\t! Pentru a putea imparti tabela in grupuri mai mici se foloseste clauza GROUP BY. Folosirea acesteia returneaza informatii sumare despre fiecare grup.\n\n\t<b>SINTAXA functiilor de grup: </b></string>
+    <string name="sintax_f_grup">"
+SELECT [coloana],
+functie_de_grup(coloana),
+(...)
+FROM tabel
+[WHERE conditie]
+[GROUP BY coloana]
+[HAVING conditie_de_grupare]
+[ORDER BY coloana]
+"</string>
+    <string name="cnt_f_grup1">\tFunctia AVG returneaza valoarea medie pentru grup, ignorand valorile nule</string>
+    <string name="cod_f_grup1">"
+SELECT AVG(salary)
+FROM employees
+
+->8775
+"</string>
+
+    <string name="cnt_f_grup2">\tFunctia COUNT returneaza numarul de randuri unde expresia evalueaza altceva in afara de null (folosind * sunt numarate toate randurile, incluzand duplicatele si pe cele cu valoare nula)</string>
+    <string name="cod_f_grup2">"
+SELECT COUNT(department_id)
+FROM employees
+
+->19
+"</string>
+
+    <string name="cnt_f_grup3">\tFunctia MIN returneaza valoarea minima a expresiei, ignorand valorile nule</string>
+    <string name="cod_f_grup3">"
+SELECT MIN(salary)
+FROM employees
+
+->2500
+"</string>
+
+    <string name="cnt_f_grup4">\tFunctia MAX returneaza valoarea maxima a expresiei, ignorand valorile nule</string>
+    <string name="cod_f_grup4">"
+SELECT MAX(salary)
+FROM employees
+
+->24000
+"</string>
+
+    <string name="cnt_f_grup5">\tFunctia SUM returneaza suma valorilor pentru grup, ignorand valorile nule</string>
+    <string name="cod_f_grup5">"
+SELECT SUM(salary)
+FROM employees
+
+->175500
+"</string>
+
+    <string name="cnt_f_grup6">\tFunctia VARIANCE returneaza variatia pentru grup, ignorand valorile nule</string>
+    <string name="cod_f_grup6">"
+SELECT VARIANCE(salary)
+FROM employees
+
+->32031447.36842105263...
+"</string>
+
+    <string name="cnt_f_grup7">\tFunctia STDDEV returneaza deviatia standard pentru grup, ignorand valorile nule</string>
+    <string name="cod_f_grup7">"
+SELECT STDDEV(salary)
+FROM employees
+
+->5659.6331478657742266...
+"</string>
+
+    <string name="titlu_f_cond0">Functii conditionale</string>
+    <string name="intro_f_cond">Functiile conditionale sunt: </string>
+    <string name="titlu_f_cond1"><u>DECODE</u></string>
+    <string name="titlu_f_cond2"><u>CASE</u></string>
+
+    <string name="cnt_f_cond1">\tFunctia DECODE permite decodificarea unei expresii intr-un mod similar logicii IF-THEN-ELSE.\n\tDecodificarea expresiei se face prin compararea unei expresii cu valorile de cautare, si prin intoarcerea rezultatului corespunzator ramurii pe care s-a gasit similitudinea.\n\t<b>Sintaxa: DECODE(expresie, valoare, rezultat, default)</b></string>
+    <string name="cnt_f_cond11">"
+Expresie -> Valoarea ce este comparata
+Valoare -> Valoarea cu care este comparat parametrul expresie
+Rezultat -> Valoarea returnata daca expresie este egala cu valoare
+Default(optional) -> Valoare returnata daca nu sunt gasite expresii egale
+<b>!daca parametrul default lipseste este returnat NULL</b>
+"</string>
+    <string name="cod_f_cond1">"
+SELECT marca, nume, colaborator,
+    DECODE(colaborator,
+        'N', 'Angajat permanent',
+        'D', 'Colaborator',
+        'Nu este specificat!')
+AS tip_angajat
+FROM auxiliar
+"</string>
+
+    <string name="cnt_f_cond2">Functia CASE testeaza valori si returneaza o valoare cand prima conditie este indeplinita.\n\tFunctia se opreste cand intalneste prima valoare adevarata.</string>
+    <string name="cnt_f_cond22">"
+<b>SINTAXA:</b>
+  CASE
+    WHEN conditia1 THEN resultat1
+    WHEN conditia2 THEN resultat2
+    WHEN conditiaN THEN resultatN
+    ELSE resultat
+END;
+"</string>
+    <string name="cod_f_cond2">"
+SELECT data_consult, medic
+FROM consultatii
+ORDER BY
+(CASE
+  WHEN diagnostic IS NULL THEN medic
+  ELSE diagnostic
+END)
+"</string>
+
+</resources>
